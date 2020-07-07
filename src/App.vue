@@ -14,6 +14,7 @@
         <v-flex xs6>
           <TodoForm />
           <TodoList/>
+          <TodoComp/>
         </v-flex>
       </v-layout>
     </v-content>
@@ -23,12 +24,14 @@
 <script>
 import TodoForm from '@/components/todo-form'
 import TodoList from '@/components/todo-list'
+import TodoComp from '@/components/todo-complete'
 
 export default {
   name: 'App',
   components: {
     TodoForm,
     TodoList,
+    TodoComp
   },
   data () {
     return {
