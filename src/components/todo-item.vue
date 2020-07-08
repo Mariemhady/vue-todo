@@ -2,27 +2,32 @@
   <div>
     <v-card>
       <v-card-title v-if="todos.length > 0">
-        <h3>Current ({{todos.length}})</h3>
+        <h3>Current ({{ todos.length }})</h3>
       </v-card-title>
-      <v-card-title primary-title  v-for="todo in todos">
-          <div>
-              <quick-edit v-model="todo.body">
-                  <h3 class="headline mb-0 ">{{ todo.body }}</h3>
-              </quick-edit>
-          </div>
-          <v-btn @click="complete(todo)">
-              Complete
-          </v-btn>
-          <v-btn color="error" @click="remove(todo)">
-              Delete
-          </v-btn>
+      <v-card-title 
+        primary-title  
+        v-for="todo in todos"
+        :key="todo.body">
+        <div>
+          <quick-edit v-model="todo.body">
+            <h3 class="headline mb-0 ">{{ todo.body }}</h3>
+          </quick-edit>
+        </div>
+        <v-btn 
+          @click="complete(todo)">
+          Complete
+        </v-btn>
+        <v-btn 
+          color="error" 
+          @click="remove(todo)">
+          Delete
+        </v-btn>
       </v-card-title>
     </v-card>
   </div>
 </template>
 <script>
 import QuickEdit from 'vue-quick-edit';
-
 export default {
     components: {
         QuickEdit,

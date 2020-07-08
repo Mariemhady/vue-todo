@@ -2,18 +2,22 @@
   <div>
     <v-card v-if="completed.length > 0">
       <v-card-title>
-        <h3>Completed ({{completed.length}})</h3>
+        <h3>Completed ({{ completed.length }})</h3>
       </v-card-title>
-      <v-card-title primary-title v-for="todo in completed">
+      <v-card-title 
+        primary-title 
+        v-for="todo in completed" 
+        :key="todo.body">
         <div>
-          <div v-model="todo.body">
-              <h3 class="headline mb-0 ">{{ todo.body }}</h3>
-          </div>
+          <h3 class="headline mb-0 ">{{ todo.body }}</h3>
         </div>
-        <v-btn @click="complete(todo)">
+        <v-btn 
+          @click="complete(todo)">
           UnComplete
         </v-btn>
-        <v-btn color="error" @click="remove(todo)">
+        <v-btn 
+          color="error" 
+          @click="remove(todo)">
           Delete
         </v-btn>
       </v-card-title>
